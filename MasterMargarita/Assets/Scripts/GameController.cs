@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     int currentSlide = 1;
     string currentLetter = "";
     GameObject currentPath;
+
+    string mildMistakeText = "";
 
     public GameObject[] intro;
     public GameObject[] pathA;
@@ -30,6 +33,12 @@ public class GameController : MonoBehaviour
         HideScene();
         currentSlide++;
         currentPath = ShowScene();
+        if (mildMistakeText != "")
+        {
+            currentPath.transform.Find("Text").GetComponent<Text>().text = mildMistakeText;
+            //currentPath.GetComponentInChildren<Text>().text = mildMistakeText;
+        }
+        mildMistakeText = "";
     }
 
     public void SetLetter(string letter)
@@ -66,6 +75,12 @@ public class GameController : MonoBehaviour
     {
         HideScene();
         intro[0].SetActive(true);
+    }
+
+    public void MildMistake(string newText)
+    {
+        mildMistakeText = newText;
+        NextSlide();
     }
 
     public void Restart()
