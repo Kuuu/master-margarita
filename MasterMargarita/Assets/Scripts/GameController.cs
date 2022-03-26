@@ -12,7 +12,8 @@ public class GameController : MonoBehaviour
 
     string mildMistakeText = "";
 
-    public GameObject[] intro;
+    
+    public GameObject[] noLetter;
     public GameObject[] pathA;
     public GameObject[] pathB;
 
@@ -51,8 +52,8 @@ public class GameController : MonoBehaviour
     {
         if (currentLetter == "")
         {
-            intro[currentSlide].SetActive(true);
-            return intro[currentSlide];
+            noLetter[currentSlide].SetActive(true);
+            return noLetter[currentSlide];
 
         } else if (currentLetter == "a")
         {
@@ -74,7 +75,7 @@ public class GameController : MonoBehaviour
     public void Mistake()
     {
         HideScene();
-        intro[0].SetActive(true);
+        noLetter[0].SetActive(true);
     }
 
     public void MildMistake(string newText)
@@ -86,5 +87,15 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void NextScene()
+    {
+
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
