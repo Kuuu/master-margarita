@@ -107,4 +107,10 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void OpenLink(string link)
+    {
+        Debug.Log(link);
+        Application.OpenURL(link);
+    }
 }
