@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject[] pathA;
     public GameObject[] pathB;
 
-    int lastScene = 3;
+    int lastScene = 4;
 
     // Start is called before the first frame update
     void Start()

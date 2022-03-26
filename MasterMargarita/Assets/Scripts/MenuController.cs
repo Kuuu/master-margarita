@@ -41,7 +41,7 @@ public class MenuController : MonoBehaviour
     public void StartLevel()
     {
         int level;
-        int[] availableLevels = {1, 2, 3};
+        int[] availableLevels = {1, 2, 3, 4};
         bool parsed = int.TryParse(levelField.text, out level);
         if (parsed)
         {
