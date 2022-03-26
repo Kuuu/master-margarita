@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     public GameObject[] pathA;
     public GameObject[] pathB;
 
+    int lastScene = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,7 +93,14 @@ public class GameController : MonoBehaviour
 
     public void NextScene()
     {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
 
+        if (currentScene >= lastScene)
+        {
+            return;
+        }
+
+        SceneManager.LoadScene(currentScene + 1);
     }
 
     public void BackToMenu()
